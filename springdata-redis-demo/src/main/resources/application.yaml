@@ -1,0 +1,13 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 0131wyj=
+      jedis:
+        pool:
+          enabled: true
+          max-active: 8
+          max-idle: 8
+          max-wait: -1
+          min-idle: 0
