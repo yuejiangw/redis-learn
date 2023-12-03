@@ -9,16 +9,24 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 @SpringBootTest
 class SpringdataRedisDemoApplicationTests {
 
-    private final StringRedisTemplate stringRedisTemplate;
     @Autowired
-    SpringdataRedisDemoApplicationTests(final StringRedisTemplate stringRedisTemplate) {
-        this.stringRedisTemplate = stringRedisTemplate;
-    }
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     void testString() {
-        stringRedisTemplate.opsForValue().set("name", "zhangsan");
-        System.out.println(stringRedisTemplate.opsForValue().get("name"));
+        redisTemplate.opsForValue().set("name", "虎哥");
+        System.out.println(redisTemplate.opsForValue().get("name"));
     }
 
+    @Test
+    void testSaveUser() {
+        User user = new User("虎哥", 21);
+        // 写入数据
+        redisTemplate.opsForValue().set("user", user);
+        System.out.println(redisTemplate.opsForValue().get("user"));
+
+        // 读取数据
+        User user1 = (User) redisTemplate.opsForValue().get("user");
+        System.out.println(user1);
+    }
 }
