@@ -24,13 +24,15 @@ public class MvcConfig implements WebMvcConfigurer {
                         "/upload/**",
                         "/voucher/**",
                         "/blog/hot",
-                        "/user/code",
-                        "/user/login",
+                        "**/user/code",
+                        "**/user/login",
                         "/swagger-ui/**",
                         "/swagger-resources/**",
-                        "/v3/**"
-                ).order(1);
+                        "/v3/**")
+                .order(1);
         // 登录刷新拦截器
-        registry.addInterceptor(new RefreshTokenInterceptor(stringRedisTemplate)).addPathPatterns("/**").order(0);
+        registry.addInterceptor(new RefreshTokenInterceptor(stringRedisTemplate))
+                .addPathPatterns("/**")
+                .order(0);
     }
 }
