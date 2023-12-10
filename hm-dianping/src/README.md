@@ -11,3 +11,7 @@
 访问 Swagger UI：`http://localhost:8081/swagger-ui/index.html`
 
 API-docs：`http://localhost:8081/v3/api-docs`
+
+## 测试
+
+由于系统中加了权限控制，因此 Swagger 可能会无法使用，改用 Postman 进行接口测试
