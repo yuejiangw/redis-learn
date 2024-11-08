@@ -117,7 +117,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         // 6.4 失败，返回过期的商铺信息
 
         // 4. 如果不存在，根据 id 查询数据库
-        Shop shop = getById(id);
+        shop = getById(id);
 
         // 7. 返回数据
         return shop;
